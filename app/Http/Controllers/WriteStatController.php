@@ -32,6 +32,7 @@ class WriteStatController extends Controller
             $this->codesKeeper->keep($code);
             $this->incrementer->incrementByCode($code);
         } catch (\Throwable $e) {
+            /** @TODO нужно хранить джобы где-то в другом месте, иначе они не работают т.к. храним коды в редисе */
             dispatch(new StatIncrementJob($code));
 
             return $this->jsonSystemErrorResponse(
