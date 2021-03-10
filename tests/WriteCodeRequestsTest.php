@@ -20,4 +20,20 @@ class WriteCodeRequestsTest extends TestCase
             200, $this->response->getStatusCode()
         );
     }
+
+    public function testWritingResult()
+    {
+        $this->get('/stats');
+        $codes = json_decode($this->response->getContent());
+        $testCodeCount = $codes->it ?? 0;
+
+        $this->post('/', [
+            'code' => 'it'
+        ]);
+
+        $this->get('/stats');
+        $newCodes = json_decode($this->response->getContent());
+
+        $this->assertEquals($testCodeCount + 1, $newCodes->it);
+    }
 }

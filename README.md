@@ -14,3 +14,6 @@ POST: `http://localhost:4999` with `code` param
 
 ##### To view stats
 GET: `http://localhost:4999/stats`
+
+##### Start tests
+`docker-compose exec -T app ./vendor/bin/phpunit`
