@@ -19,6 +19,12 @@ GET: `http://localhost:4999/stats`
 `docker-compose exec -T app ./vendor/bin/phpunit`
 
 ##### ab test
-`ab.exe -n 1000 -c 100 -p ab.post -T application/x-www-form-urlencoded http://localhost:4999/`
+If you use linux be sure that you have apache utils:
+
+`sudo apt-get install apache2-utils`
+
+Run command:
+
+`ab` | `ab.exe -n 3000 -c 300 -p ab.post -T application/x-www-form-urlencoded http://localhost:4999/`
 
 ~500 requests average on dev machine
