@@ -2,6 +2,6 @@
 /.idea
 Homestead.json
 Homestead.yaml
-.env
+#.env
 .phpunit.result.cache
 composer.lock
