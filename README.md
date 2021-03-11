@@ -21,4 +21,4 @@ GET: `http://localhost:4999/stats`
 ##### ab test
 `ab.exe -n 1000 -c 100 -p ab.post -T application/x-www-form-urlencoded http://localhost:4999/`
 
-~200 requests average on dev machine
+~500 requests average on dev machine
