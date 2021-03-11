@@ -19,3 +19,6 @@ $router->get('/', function () use ($router) {
 
 $router->post('/', 'WriteStatController');
 $router->get('/stats', 'GetStatsController');
+$router->get('/test', function () {
+    return view('test');
+});

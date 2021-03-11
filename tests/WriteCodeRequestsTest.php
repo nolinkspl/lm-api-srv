@@ -36,4 +36,38 @@ class WriteCodeRequestsTest extends TestCase
 
         $this->assertEquals($testCodeCount + 1, $newCodes->it);
     }
+
+    /**
+     * @param string $code
+     * @dataProvider loadDataProvider
+     */
+    public function testWritingLoad(string $code)
+    {
+        $this->post('/', [
+            'code' => $code,
+        ]);
+    }
+
+    public function loadDataProvider()
+    {
+        $codes = [
+            'au',
+            'ga',
+            'qw',
+            'tp',
+            'en',
+            'tt',
+            'po',
+            'bv',
+            'zx',
+        ];
+
+        $result = [];
+
+        for ($i = 0; $i < 2000; $i++) {
+            $result[] = $codes[rand(0, 9)];
+        }
+
+        return $result;
+    }
 }
