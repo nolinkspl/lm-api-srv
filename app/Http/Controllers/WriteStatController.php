@@ -26,7 +26,6 @@ class WriteStatController extends Controller
     {
         $code = $request->post('code');
         try {
-            throw new \Exception('lol');
             $this->incrementer->incrementByCode($code);
         } catch (\Throwable $e) {
             /** @TODO нужно хранить джобы где-то в другом месте, иначе они не работают т.к. храним коды в редисе */
