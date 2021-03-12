@@ -4,6 +4,8 @@
 
 `docker-compose up -d`
 
+`docker-compose exec -T app composer install`
+
 
 ## Check it on
 `http://localhost:4999`
