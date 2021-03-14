@@ -29,4 +29,4 @@ Run command:
 
 `ab` | `ab.exe -n 3000 -c 300 -p ab.post -T application/x-www-form-urlencoded http://localhost:4999/`
 
-~500 requests average on dev machine
+~500 requests/second average on dev machine
