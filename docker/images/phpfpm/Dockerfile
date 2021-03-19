@@ -13,3 +13,4 @@ COPY composer.json .
 RUN composer install --no-scripts --no-dev --prefer-dist --optimize-autoloader && composer clear-cache
 
 COPY . .
+#COPY ../.. .
