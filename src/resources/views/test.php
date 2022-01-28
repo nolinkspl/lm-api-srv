@@ -32,11 +32,19 @@
     let counter = 0;
     let interval;
 
+    setInterval(
+        function() {
+            $('.js-counter').val(counter);
+        }, 1000
+    )
+
+    setInterval(getStats, 3000);
+
     $('.js-start').on('click', function () {
         interval = setInterval(
             function () {
                 $.post('/', {code: 'ru'})
-                    .done(function () {
+                    .success(function () {
                         counter++;
                     }).error(function(jqXHR, status, e) {
                         if (status === "timeout") {

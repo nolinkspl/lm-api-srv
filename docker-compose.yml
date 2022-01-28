@@ -7,18 +7,18 @@ networks:
 services:
   app:
     build:
-      context: .
-      dockerfile: docker/images/phpfpm/Dockerfile
+      context: docker/images/app
+      dockerfile: Dockerfile
     tty: true
     restart: unless-stopped
     container_name: lumen-app
     working_dir: /var/www
     volumes:
-      - .:/var/www
+      - ./src:/var/www
     depends_on:
       - redis
     env_file:
-      - .env
+      - docker/images/app/.env
     networks:
       - lumen-api
 
@@ -28,32 +28,13 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - '4999:80'
+      - '8001:80'
       - '443:443'
     volumes:
-      - .:/var/www
+      - ./src:/var/www
       - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
     depends_on:
       - app
-    networks:
-      - lumen-api
-
-  rdb:
-    image: postgres
-    container_name: lumen-db
-    restart: unless-stopped
-    tty: true
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: lumenapi
-      MYSQL_DATABASE: lumenapi
-      MYSQL_USER: lumenapi
-      MYSQL_PASSWORD: lumenapi
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
-    volumes:
-      - ./docker/database:/var/lib/mysql
     networks:
       - lumen-api
 
@@ -64,9 +45,3 @@ services:
       - "6379:6379"
     networks:
       - lumen-api
-
-#  clickhouse:
-#    image: yandex/clickhouse-client
-#    container_name: lumen-clickhouse
-#    ports:
-#      - "

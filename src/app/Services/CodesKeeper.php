@@ -39,6 +39,7 @@ class CodesKeeper
     {
         $encodeCodes = $this->redis->get('codes');
         if (!$encodeCodes) {
+            return [];
             throw new RedisKeyNotFound('Key `codes` not found', 409);
         }
 

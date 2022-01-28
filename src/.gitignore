@@ -1,0 +1,5 @@
+/vendor
+Homestead.json
+Homestead.yaml
+.phpunit.result.cache
+composer.lock

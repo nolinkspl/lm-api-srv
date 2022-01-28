@@ -8,14 +8,14 @@
 
 
 ## Check it on
-`http://localhost:4999`
+`http://localhost:8001`
 
 
 ##### To add stat record
-POST: `http://localhost:4999` with `code` param
+POST: `http://localhost:8001` with `code` param
 
 ##### To view stats
-GET: `http://localhost:4999/stats`
+GET: `http://localhost:8001/stats`
 
 ##### Start tests
 `docker-compose exec -T app ./vendor/bin/phpunit`
